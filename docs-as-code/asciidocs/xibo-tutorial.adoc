@@ -1,0 +1,146 @@
+= XIBO-Docker Installation
+Daniel Andricic Benjamin Ecker
+1.0.0, 2020-10-08: Some notes
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// https://fontawesome.com/v4.7.0/icons/
+endif::backend-html5[]
+
+== Was ist XIBO-API?
+
+XIBO-API ist ein Content-Management-System welches Features, wie z.B. einen REST-Service enthält.
+Dadurch kann man XIBO leicht in andere Systeme integrieren und er kann mit den anderen
+verfügbaren Systemen, kommunizieren.
+
+In unserem Projekt soll durch die XIBO-API mit den Digital Signage Server kommuniziert
+werden um mit dem Server Daten für On-Demand-Videos austauschen zu können.
+
+== OpenID
+
+OpenID ist ein Framework welches dafür sorgt, dass die Person die auf das System zugreifen
+möchte, durch seine Benutzerdaten authentifiziert wird.
+
+== Was wird benötigt?
+
+* Docker Desktop
+* Keycloak-Server
+* XIBO-Server
+* OpenID
+
+== Konfigurieren
+
+In der config.env Datei werden alle wichtigen Daten wie z.B. Datenbank-Zugriffsdaten, Hostname und
+die SMTP Einstellungen, gespeichert. +
+Diese config-Datei und die nötige docker-compose-Datei kann man sich vom Github-Repository
+"xibosignage/xibo-docker" holen. +
+link:https://github.com/xibosignage/xibo-docker[xibo-docker Repository]
+
+Nachdem man sich das Repository geklont hat, muss man die Datei config.env.template kopieren
+und als config.env speichern. +
+Dies macht man mit dem Befehl cp config.env.template config.env
+
+.config.env
+----
+## CMS Configuration
+
+## Please make a copy of this file as config.env, and then
+## edit it to suit your environment
+
+## The CMS brings its own MySQL server to store your
+## data.
+## On a new installation, we need to create a user account for the CMS to
+## connect to that database with. What password should
+## that account use? Enter a random password here.
+## We recommend using a 16 character random upper/lower case
+## and digits.
+## You could for example use the random.org password generator
+## here: https://www.random.org/passwords/?num=1&len=16&format=plain&rnd=new
+##
+## IMPORTANT: DO NOT USE SPECIAL CHARACTERS, SPACES etc. Please use only
+## alpha-numeric (ie A-Z a-z 0-9) passwords of around 16 characters. The
+## random generator linked above will give you something suitable.
+##
+## If you're upgrading an existing installation, be sure to use the correct
+## password for the cms user account in the MySQL database (ie what you had in
+## this variable previously).
+
+MYSQL_PASSWORD=password1234
+
+## SMTP Server Configuration
+## The CMS needs to be able to send email to you
+## Please enter credentials for a suitable SMTP server
+## Defaults will work for GMail - replacing your GMail username
+## and password as appropriate. You will also need to enable access
+## for less secure applications on your GMail account for this to
+## work. See https://support.google.com/accounts/answer/6010255
+
+## SMTP Server Hostname
+CMS_SMTP_SERVER=smtp.gmail.com:587
+## SMTP Username
+CMS_SMTP_USERNAME=youraccount@gmail.com
+## SMTP Password
+CMS_SMTP_PASSWORD=yourpassword
+## Use a TLS Connection YES/NO
+CMS_SMTP_USE_TLS=YES
+## Use a STARTTLS Connection YES/NO
+CMS_SMTP_USE_STARTTLS=YES
+## Rewrite domain (the domain your email will appear to come from)
+CMS_SMTP_REWRITE_DOMAIN=gmail.com
+## Hostname that we should identify ourself to the remote server as
+CMS_SMTP_HOSTNAME=@gmail.com
+## Can the From line be overridden in the outbound email
+## NB GMail will rewrite the From address anyway so it's not important
+## for GMail - YES/NO
+CMS_SMTP_FROM_LINE_OVERRIDE=YES
+
+## It is sometimes necessary to configure the webserver running inside
+## the container to know the DNS name by which you will normally
+## access the CMS. For most installations this is unnecessary and can
+## be left as default, however, if you know this, it won't hurt to
+## set it
+CMS_SERVER_NAME=cms.example.org
+
+## Sometimes you want Xibo to run in a sub directory of the webserver
+## rather than at the root. If so, specify it here. Comment it out to
+## use the web root.
+# CMS_ALIAS=/xibo
+
+
+## Xibo comes with a 2GB limit for individual file uploads
+## If you require larger files, uncomment the following and adjust as
+## required
+----
+
+In der config.env muss ein Password für die Datenbank angegeben werden. +
+Der Host-Name muss auch auf eine gültige mail adresse eingestellt werden. +
+So können Benachrichtigungen an die gesetzte E-Mail versendet werden. +
+
+Besonders zu beachten ist, dass der Name der Tabelle in der Datenbank gleich heißen soll
+wie in der config.env-Datei. +
+
+[Optional] +
+In dieser config-Datei muss man die CM_SERVER_NAME von cms.example.org
+auf eine richtige Domaine ändern. +
+In unseren Beispiel hat "xibo.syp.local" ausgereicht, da wir nur lokal auf XIBO
+zugreifen möchten. +
+
+Anschließend wird der Befehl docker-compose up -d in den Ordner wo die config und
+die docker-compose.yml gespeichert wurde, ausgeführt. +
+Es wird ein bisschen Zeit brauchen bis Docker alle nötigen Daten heruntergeladen hat
+und XIBO gestartet hat. +
+
+Wenn Docker es geschafft hat XIBO zum laufen zu bringen, dann kann man unter
+localhost:80 auf das CMS von XIBO zugreifen.
+Am Anfang kommt in einen Login-Bildschirm. +
+Man kann sich anfangs noch mit den Standarduser anmelden. +
+Username: xibo-admin +
+Password: password +
+

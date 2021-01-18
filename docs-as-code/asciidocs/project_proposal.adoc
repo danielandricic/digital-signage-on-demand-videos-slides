@@ -1,0 +1,74 @@
+= Projekt Proposal DigitalSignage
+ // Metadata
+:author: Daniel Andricic
+:date: 2020-09-22
+:revision: 1.0
+//Settings
+:source-highlighter: coderay
+:icons: font
+//:sectnums:    // Nummerierung der Überschriften / section numbering
+// Refs:
+:imagesdir: images
+:sourcedir-code: assignment-01-projektantrag-danielandricic/main/java/at/htl/
+:toc:
+
+Version: {revision}
+
+++++
+<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+++++
+
+== Project Client
+
+As this project is part of an exercise, the project client is our school.
+
+== Project Background
+
+In our school, we have a huge Monitor in the auditorium. This monitor is mostly used for current news, weather service and to present new projects in the school.
+To be able to show videos on this monitor quickly and easily, we would program an app
+which streams the desired video to the monitor.
+This would be used to show videos that represent or promote the school at the open day.
+
+== Project Goals
+===== Sense/purpose of the project
+
+* Show videos for the open day.
+* Possiblity for the students to show their projects on a large screen.
+
+== **Functions of the App**
+
+* Login for all Students and Teachers.
+* Estimated time for the Available.
+* Add Video to the waiting queue.
+* Waiting Queue for all incoming Tasks.
+* Calculate estimated waiting time.
+* To offer the user an easy control to stream a video.
+* Stream videos on other monitors.
+* Manage the Permissions from the user.
+
+== Stakeholders
+* Teacher
+* Student
+
+== Shareholders
+
+* School Administrator
+
+== Final result
+The result should be an app that is running, a connection
+to the desired monitor (e.g. monitor in the auditorium)
+and stream the desired video to the monitor.
+
+== Project launch
+
+Tbd, 3 weeks after the determination.
+
+== Project Deadline
+
+Tbd, 3 weeks after the determination.
+
+== Startsite
+
+* link:../../README.md[Startsite] +
+* link:./index.html[Index] +
+* link:./system-specification.html[System-Specification]
