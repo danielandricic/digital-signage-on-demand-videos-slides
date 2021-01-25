@@ -21,9 +21,7 @@ Digital Signage - Server sind, ermöglichen.
 
 == Dokumente
 
-link:./system-specification.html[Pflichtenheft] +
-link:./project_assignment.html[Projektantrag] +
-link:./project_proposal.html[Projektauftrag] +
-link:./xibo-tutorial.html[XIBO-Tutorial] +
-link:../../README.md[README] +
-
+* link:./system-specification.html[Pflichtenheft] +
+* link:./project_assignment.html[Projektantrag] +
+* link:./project_proposal.html[Projektauftrag] +
+* link:./xibo-tutorial.html[XIBO-Tutorial] +

@@ -144,3 +144,10 @@ Man kann sich anfangs noch mit den Standarduser anmelden. +
 Username: xibo-admin +
 Password: password +
 
+== Links
+
+* link:./index.html[Startseite] +
+* link:./project_proposal.html[Projekauftrag] +
+* link:./project_assignment.html[Projektantrag] +
+* link:./xibo-tutorial.html[XIBO-Tutorial] +
+* link:./system-specification.html[Pflichtenheft]

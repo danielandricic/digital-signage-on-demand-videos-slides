@@ -131,14 +131,20 @@ Noch nicht vorgegeben
 [plantuml,systemArch,png]
 ----
 @startuml
+skinparam linetype ortho
+
+
 node "Signage Server" {
     [CMS]
     [XIBO API]
 }
 
-node "NGNIX Server" {
+node "NGINX Server" {
     [Angular Client]
 }
+
+circle REST as r1
+circle REST as r2
 
 node "Quarkus Server" {
     [REST-Services]
@@ -148,20 +154,22 @@ node "Keycloak Server" {
     [OpenId-Service]
 }
 
-[XIBO API] <-- REST
-[REST-Services] -left-> REST
-[OpenId-Service] -up-> [REST-Services]
+
+[XIBO API] <-- r1
+[REST-Services] -left-> r1
+[OpenId-Service] -right-> [REST-Services]
 [OpenId-Service] -up-> [Angular Client]
 [XIBO API] -right-> [CMS]
-[Angular Client] -left-> [REST-Services]
-
+[Angular Client] --> r2
+r2 --> [REST-Services]
 
 @enduml
 ----
 
 == Startseite
 
-link:../../README.md[Startseite] +
-link:./index.html[Index] +
-link:./project_proposal.html[Projekauftrag]
-
+* link:./index.html[Startseite] +
+* link:./project_proposal.html[Projekauftrag] +
+* link:./project_assignment.html[Projektantrag] +
+* link:./xibo-tutorial.html[XIBO-Tutorial] +
+* link:./system-specification.html[Pflichtenheft]

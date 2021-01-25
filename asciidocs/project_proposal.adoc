@@ -67,8 +67,12 @@ Tbd, 3 weeks after the determination.
 
 Tbd, 3 weeks after the determination.
 
-== Startsite
+== Links
 
-* link:../../README.md[Startsite] +
-* link:./index.html[Index] +
-* link:./system-specification.html[System-Specification]
+== Links
+
+* link:./index.html[Startseite] +
+* link:./project_proposal.html[Projekauftrag] +
+* link:./project_assignment.html[Projektantrag] +
+* link:./xibo-tutorial.html[XIBO-Tutorial] +
+* link:./system-specification.html[Pflichtenheft]
