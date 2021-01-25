@@ -24,7 +24,7 @@ git init
 git add .
 git commit -m "$USER - rebuilding gh-pages $(date)"
 git remote add origin $ORIGIN_URL
-
+echo $ORIGIN_URL
 
 # echo gh-pages url
 IFS='/' read -ra TEMP <<< "$ORIGIN_URL"

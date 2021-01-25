@@ -132,21 +132,30 @@ Noch nicht vorgegeben
 ----
 @startuml
 node "Signage Server" {
-[CMS]
+    [CMS]
+    [XIBO API]
 }
 
 node "NGNIX Server" {
-[Angular Client] -- openId
+    [Angular Client]
 }
 
-[CMS] <-- REST
-REST --> [Angular Client]
-[Insomnia] - [CMS]
+node "Quarkus Server" {
+    [REST-Services]
+}
 
-note left of [Insomnia]
-Only used for testing
-the Accessibility
-end note
+node "Keycloak Server" {
+    [OpenId-Service]
+}
+
+[XIBO API] <-- REST
+[REST-Services] -left-> REST
+[OpenId-Service] -up-> [REST-Services]
+[OpenId-Service] -up-> [Angular Client]
+[XIBO API] -right-> [CMS]
+[Angular Client] -left-> [REST-Services]
+
+
 @enduml
 ----
 
