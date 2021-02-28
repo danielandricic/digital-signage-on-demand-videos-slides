@@ -8,5 +8,5 @@ gh-pages
 copytodocs.sh
 remove-adoc.sh
 HowToGH-Pages.txt
-.env
-.idea
+.env/
+.idea/
