@@ -39,3 +39,24 @@ Videos und Fotos ermöglichen.
 * OpenID: +
     Die Authentifizierung wird mit OpenID erfolgen, so sollen auch nur
     authentifizierte Personen die Funktionen der Erweiterung nutzen können. +
+
+== Aktivitätsdiagramm
+
+Hier sieht man ein sehr stark vereinfachtes Aktivitätsdiagramm, um zu sehen, wie ungefähr +
+die Auswahl eines Videos, funktionieren soll.
+
+[plantuml,activityDiagram,png]
+----
+@startuml
+skinparam linetype orthodox
+
+(*) -right-> "Select Display"
+"Select Display" -right-> "Select Media"
+"Select Media" -right-> "Choose Time"
+note right: Whole video or part of it.
+"Choose Time" -down-> "Submit"
+"Submit" --> (*)
+
+@enduml
+----
+

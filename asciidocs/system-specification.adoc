@@ -18,42 +18,39 @@ endif::backend-html5[]
 
 === Ausgangssituation
 
-Die HTL Leonding ist eine HTL im oö. Zentralraum mit ca. 1000 Schülern. +
+Die HTL Leonding ist eine berufsbildende Lehranstalt im oö. Zentralraum. +
 Auf den Monitoren, die in der Aula stehen, werden aktuelle Nachrichten angezeigt. +
 Es werden Nachrichten wie z.B. Wetter, Technik-Foren und aktuelle Nachrichten von
-der Schule, Warnungen, etc. +
-Auf die Monitore werden auch Fotos dargestellt die meistens von den Schulprojekten
+der Schule, Warnungen, etc. angezeigt. +
+Auf den Monitoren werden auch Fotos dargestellt die meistens von den Schulprojekten +
 bzw. Schulturnieren angezeigt werden.
 
 === Istzustand
 
 In der Aula befinden sich 4 große Monitore. +
 Die Monitore werden mit einer Software so gesteuert, dass man bestimmte Inhalte auf den Monitoren anzeigen kann. +
-Die Software welche die Monitore verwaltet, verbindet sich mit einem der schulinternen Server, der über XIBO eine zeitgesteuerte
+Die Software welche die Monitore verwaltet, verbindet sich mit einem der schulinternen Server, der über XIBO eine zeitgesteuerte +
 Oberfläche mit täglichen Nachrichten anzeigt. +
-Die Monitore holen sich so alle nötigen Daten mit den REST-Services vom Server. +
-Sobald man über der Webseite/App einen Befehl sendet, um beispielsweise ein Foto
-anzuzeigen, sendet die App den Befehl an den Server über die
-eingebauten REST-Services, der dann an den Signage-Server die Nachricht
-weiterleitet. +
-Anschließend sendet der Signage-Server eine Push-Benachrichtigung
-an den ODROID TV (Monitor in der Aula), der dann am Ende das Foto anzeigt.
+Das ODROIDTV(Android TV in der Aula) ladet sich so alle nötigen Daten vom Server. +
 
 === Problemstellung
 
-Derzeit kann der Digital-Signage Server keine On-Demand Videos streamen/zur Verfügung
-stellen. +
+Derzeit kann der Digital-Signage Server keine On-Demand Videos streamen/zur Verfügung stellen. +
 Die Software die den Digital-Signage Server(Xibo API) steuert, ist nicht echtzeit-basierend, somit +
 kann eine Anfrage auf den Server nicht sofort ausgeführt werden. +
+Aktuell sind alle Events, sheduled. +
+Das bedeutet, dass alles was auf den Monitore/n angezeigt wird, ist schon im voraus geplant geworden.
 So kann der Direktor beispielsweise am Tag der offenen Tür keine Videos auf die Monitore +
 darstellen lassen.
 
 === Aufgabenstellung
 
 Die Erweiterung soll den Digital-Signage Server so erweitern, dass man +
-auch Videos beliebig uploaden kann. +
-Der Benutzer soll über der Webseite ein Video/Foto auswählen, um es +
-an den jeweiligen Monitor anzuzeigen.
+auch Videos beliebig auf einen oder mehreren ausgewählten Monitoren, anzeigen. +
+Der Benutzer soll über der App ein Video auswählen, um es +
+an den ausgewählten Monitor anzuzeigen. +
+Um diese Funktionalität auch ohne Wartezeiten zu ermöglichen, soll ein Xibo-Modul erstellt werden, der +
+den Digital-Signage Server zu einem Echtzeit-Server umwandelt.
 
 ==== Funktionale Anforderungen
 
@@ -78,9 +75,9 @@ package "Digital Signage Erweiterung" {
 }
 
 u --> stv
-stv .> sid : <<extends>>
 stv .> slm : <<include>>
 stv .> slv : <<include>>
+stv .> sid : <<extends>>
 @enduml
 ----
 
@@ -93,26 +90,28 @@ stv .> slv : <<include>>
 
 === Ziele
 
-Das Ziel des Projekts, wäre eine Web-Applikation mit einem
-Angular Client, der auf die bestehenden REST-Funktionalitäten des Digital-Signage Server zugreift.
-Die Erweiterung soll die zu anzuzeigenden Videos auf den ausgewählten Monitor sofort anzeigen.
-Durch die Authentifizierung der Benutzer über den Keycloak-Server(OpenID) sollen autorisierte Personen
-auf das System zugreifen können.
+Das Ziel des Projekts, ist eine Web-Applikation mit einem +
+Angular Client, der auf die bestehenden REST-Funktionalitäten des Digital-Signage Server zugreift. +
+Die Erweiterung soll die zu anzuzeigenden Videos auf den ausgewählten Monitor sofort anzeigen. +
+Durch die Authentifizierung der Benutzer über den Keycloak-Server (OpenID) sollen autorisierte Personen +
+auf das System zugreifen können. +
+Die Erweiterung der Xibo-API durch ein selbst gefertigtes Modul soll die Durchführung neuer Befehl sofort ermöglichen. +
+Somit wird der Signage-Server durch dieses Modul zum Echtzeit-Server. +
 
 === Mengengerüst
 
-Die Schule hat mehr als 1000 Schüler, falls ein Lehrer +
-ein Video vom Handy auf den Monitor +
+Die Schule hat mehr als 1000 Schüler. +
+Falls ein Lehrer ein Video vom Handy auf den Monitor +
 anzeigen möchte, kann er/sie die verfügbaren Monitore +
-auswählen und bestimmte Videos anzeigen und +
+auswählen und bestimmte Videos auswählen und somit +
 einen Vortrag am Tag der offenen Tür oder sonstiges, halten. +
 
 === Rahmenbedingungen
-Noch nicht vorgegeben
+Nicht vorgegeben
 
 == Entwurf
 === Systemarchitektur
-[plantuml,systemArch,png]
+[plantuml,systemArchtecture,png]
 ----
 @startuml
 skinparam linetype orthodox
@@ -157,4 +156,5 @@ link:./project_proposal.html[Projektauftrag] +
 link:./project_assignment.html[Projektantrag] +
 link:./xibo-tutorial.html[XIBO-Tutorial] +
 link:./system-specification.html[Pflichtenheft] +
-link:./first_meeting.html[First Meeting]
+link:./first_meeting.html[First Meeting] +
+link:./concept.html[Entwurfsmuster] +

@@ -1,13 +1,5 @@
-build-docs-html/
-build-docs-pdf/
-build-docs-revealjs/
-target/
-asciidocs/revealjs/
-revealjs.zip
-gh-pages
-copytodocs.sh
-remove-adoc.sh
-HowToGH-Pages.txt
+on-demand-videos/.idea/
+on-demand-videos/target/
+gh-pages/
 .env/
-.idea/
-README.txt/
+
