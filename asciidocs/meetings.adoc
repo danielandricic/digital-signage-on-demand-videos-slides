@@ -10,7 +10,8 @@ ifdef::backend-html5[]
 
 == Meeting-Dokumentation
 
-link:./first_meeting.html[First Meeting 15.01.2021]
+link:./first_meeting.html[First Meeting mit Halil]
+link:./second_meeting.html[Second Meeting mit Halil]
 
 == Dokumente
 

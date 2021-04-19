@@ -53,8 +53,6 @@ auf den XIBO-Server gespeichert ist und die Zeit wie lange das Video und wann es
 
 Wir haben ein sehr stark vereinfachtes Aktivitätsdiagramm erstellt, welches ungefähr den Vorgang +
 beim Anzeigen eines Videos, im Hintergrund, passiert. +
-link:concept.adoc[Entwurfsmuster] +
-
-==== XIBO-Server
+link:concept.html[Entwurfsmuster] +
 
 

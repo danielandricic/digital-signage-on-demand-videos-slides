@@ -2,4 +2,5 @@ on-demand-videos/.idea/
 on-demand-videos/target/
 gh-pages/
 .env/
+.idea/
 
