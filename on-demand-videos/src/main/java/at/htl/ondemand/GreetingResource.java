@@ -1,16 +1,32 @@
 package at.htl.ondemand;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import java.util.logging.Logger;
 
 @Path("/hello-resteasy")
 public class GreetingResource {
 
+    private static final Logger LOG = Logger.getLogger(GreetingResource.class.getSimpleName());
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello ";
+        return "Hello";
     }
+
+    /*
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/display/{id}")
+    public Response getDisplayById(@Context UriInfo info, @PathParam("id") Integer id0) {
+        UriBuilder builder = info
+                .getAbsolutePathBuilder();
+
+
+
+        return Response
+                .ok()
+                .build();
+    }*/
 }
