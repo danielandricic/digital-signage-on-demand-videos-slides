@@ -1,10 +1,10 @@
-package at.htl.ondemand;
+package at.htl.ondemand.ressource;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.util.logging.Logger;
 
-@Path("/hello-resteasy")
+@Path("/greeting")
 public class GreetingResource {
 
     private static final Logger LOG = Logger.getLogger(GreetingResource.class.getSimpleName());

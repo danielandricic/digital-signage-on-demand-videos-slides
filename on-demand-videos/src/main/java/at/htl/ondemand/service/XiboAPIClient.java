@@ -1,11 +1,15 @@
 package at.htl.ondemand.service;
 
+import at.htl.ondemand.model.form.XiboTokenBody;
 import at.htl.ondemand.model.xibo.Display;
 import at.htl.ondemand.model.xibo.Layout;
 import at.htl.ondemand.model.xibo.DisplayGroup;
+import at.htl.ondemand.model.xibo.XiboToken;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @RegisterRestClient
@@ -51,4 +55,9 @@ public interface XiboAPIClient {
     List<Display> getDisplaysByDisplaygroupId(
             @QueryParam("displayGroupId") Long displayGroupId
     );
+
+    @POST
+    @Path("/authorize/access_token")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    XiboToken getAccessToken(@MultipartForm XiboTokenBody xiboTokenBody);
 }
