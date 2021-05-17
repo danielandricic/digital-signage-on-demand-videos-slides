@@ -3,4 +3,8 @@ on-demand-videos/target/
 gh-pages/
 .env/
 .idea/
-
+frontend-client/node_modules
+frontend-client/e2e
+frontend-client/.idea
+frontend-client/.git
+frontend-client/.gitignore
