@@ -9,6 +9,7 @@ import { HeaderComponent } from './core/header/header.component';
 import {ApiService} from './core/services/api.service';
 import {HttpClientModule} from '@angular/common/http';
 import { DisplayComponent } from './display/display.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { DisplayComponent } from './display/display.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

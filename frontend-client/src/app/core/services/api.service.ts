@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {Layout} from '../../shared/layout.model';
+import { HttpClient} from '@angular/common/http';
 import {Display} from '../../shared/display.model';
-// import { Layout } from 'src/app/shared/models/layout.model';
-// import { Media } from 'src/app/shared/models/media.model';
+import {Media} from '../../shared/media.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +13,30 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  getDisplays(): Observable<Display[]> {
-    return this.http.get<Display[]>('display');
+  async getDisplays(): Promise<Display[]> {
+    const data = this.http.get<Display[]>(this.apiUrl + 'display').toPromise();
+    console.log(data);
+    return data;
+  }
+
+  async getVideos(): Promise<Media[]> {
+    const data = this.http.get<Media[]>(this.apiUrl + 'video').toPromise();
+    console.log(data);
+    return data;
+  }
+
+  async submitVideo(displayId: number, mediaId: number): Promise<object>{
+    let msg = '';
+    console.log(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId);
+    const data = this.http.post(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId, null)
+      .toPromise()
+      .then()
+      .catch(err => {
+        msg = err.error.message;
+      });
+    console.log(msg);
+    console.log(data);
+    // @ts-ignore
+    return data;
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../core/services/api.service';
 import {Display} from '../shared/display.model';
+import {Media} from '../shared/media.model';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-display',
@@ -8,13 +10,21 @@ import {Display} from '../shared/display.model';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  displays: Display[] = Array();
+  displays: Display[] = [];
+  videos: Media[] = [];
+  selectedVideo = -1;
+  selectedDisplay  = -1;
+  formControl = new FormControl('', Validators.required);
 
   constructor(private apiService: ApiService) { }
 
-  ngOnInit(): void {
-    this.apiService.getDisplays().subscribe(
-      displays => this.displays = displays
-    );
+  async ngOnInit(): Promise<void> {
+    this.displays = await this.apiService.getDisplays();
+    this.videos = await this.apiService.getVideos();
+  }
+
+  submit(): void {
+    console.log(this.selectedDisplay.toString() + ' ' + this.selectedVideo.toString());
+    this.apiService.submitVideo(this.selectedDisplay, this.selectedVideo);
   }
 }
