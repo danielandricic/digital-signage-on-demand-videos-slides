@@ -1,0 +1,11 @@
+.display-list {
+  margin-bottom: 1rem;
+}
+.display-list-container {
+  display: flex;
+  align-items: center;
+
+  mat-list {
+    margin-left: 0.8rem;
+  }
+}

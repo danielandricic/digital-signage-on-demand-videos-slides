@@ -8,11 +8,13 @@ import { MaterialModule } from './material-module';
 import { HeaderComponent } from './core/header/header.component';
 import {ApiService} from './core/services/api.service';
 import {HttpClientModule} from '@angular/common/http';
+import { DisplayComponent } from './display/display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,

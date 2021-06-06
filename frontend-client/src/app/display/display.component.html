@@ -1,0 +1,9 @@
+<div class="display-list">
+  <div *ngIf="displays.length > 0; else noDisplay" class="display-list-container">
+    Displays:
+    <mat-list>
+      <mat-list-item role="listitem" *ngFor="let display Of displays">{{display.display}}</mat-list-item>
+    </mat-list>
+  </div>
+  <ng-template #noDisplay>No Display available</ng-template>
+</div>
