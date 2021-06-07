@@ -1,0 +1,15 @@
+### abc
+GET http://localhost:8080/api/display
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/video
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/schedule/1/23
+Accept: application/json
+
+###
