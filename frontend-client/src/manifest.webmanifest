@@ -6,7 +6,14 @@
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "description": "PWA to manage the Digital Signage Screens and show on specific displays any Video.",
   "icons": [
+    {
+      "src": "assets/icons/icon-pwa.jpg",
+      "sizes": "72x72",
+      "type": "image/jpg",
+      "purpose": "maskable any"
+    },
     {
       "src": "assets/icons/icon-72x72.png",
       "sizes": "72x72",
