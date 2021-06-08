@@ -3,6 +3,7 @@ import {ApiService} from '../core/services/api.service';
 import {Display} from '../shared/display.model';
 import {Media} from '../shared/media.model';
 import {FormControl, Validators} from '@angular/forms';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-display',
@@ -15,6 +16,7 @@ export class DisplayComponent implements OnInit {
   selectedVideo = -1;
   selectedDisplay  = -1;
   formControl = new FormControl('', Validators.required);
+  spinning: ProgressSpinnerMode = 'determinate';
 
   constructor(private apiService: ApiService) { }
 
@@ -23,8 +25,10 @@ export class DisplayComponent implements OnInit {
     this.videos = await this.apiService.getVideos();
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
     console.log(this.selectedDisplay.toString() + ' ' + this.selectedVideo.toString());
-    this.apiService.submitVideo(this.selectedDisplay, this.selectedVideo);
+    this.spinning = 'indeterminate';
+    await this.apiService.submitVideo(this.selectedDisplay, this.selectedVideo);
+    this.spinning = 'determinate';
   }
 }

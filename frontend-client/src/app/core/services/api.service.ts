@@ -8,7 +8,7 @@ import {Media} from '../../shared/media.model';
 })
 export class ApiService {
 
-  private apiUrl = 'http://localhost:8080/api/';
+  private apiUrl = 'http://vm141.htl-leonding.ac.at:8080/api/';
 
   constructor(private http: HttpClient) {
   }
