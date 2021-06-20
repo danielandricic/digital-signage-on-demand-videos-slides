@@ -9,6 +9,7 @@ import {Media} from '../../shared/media.model';
 export class ApiService {
 
   private apiUrl = 'http://vm141.htl-leonding.ac.at:8080/api/';
+  public msg = '';
 
   constructor(private http: HttpClient) {
   }
@@ -26,16 +27,20 @@ export class ApiService {
   }
 
   async submitVideo(displayId: number, mediaId: number): Promise<object>{
-    let msg = '';
     console.log(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId);
-    const data = this.http.post(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId, null)
-      .toPromise()
-      .then()
-      .catch(err => {
-        msg = err.error.message;
-      });
-    console.log(msg);
+    let data: any;
+    try {
+      data = this.http.post<object>(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId, null)
+        .toPromise();
+    }
+    catch (err) {
+      console.log(err.status);
+      this.msg = err.message;
+      console.log(this.msg);
+    }
     console.log(data);
+    console.log(this.msg);
+
     // @ts-ignore
     return data;
   }
