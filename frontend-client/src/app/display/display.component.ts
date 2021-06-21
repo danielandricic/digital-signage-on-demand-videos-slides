@@ -5,6 +5,7 @@ import {Media} from '../shared/media.model';
 import {FormControl, Validators} from '@angular/forms';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-display',
@@ -29,13 +30,17 @@ export class DisplayComponent implements OnInit {
   async submit(): Promise<void> {
     console.log('Display with ID: ' + this.selectedDisplay.toString() + ' selected Video with ID: ' + this.selectedVideo.toString());
     this.spinning = 'indeterminate';
+    console.log(this.spinning);
     const response = await this.apiService.submitVideo(this.selectedDisplay, this.selectedVideo);
-    console.log(response.toString());
+    console.log(this.spinning);
+    console.log(response.statusText);
     this.spinning = 'determinate';
-    this.openSnackBar(this.apiService.msg, 'OK');
+    this.openSnackBar(response, 'OK');
   }
 
-  openSnackBar(message: string, action: string): void {
-    this.snackBar.open(message, action);
+  openSnackBar(error: HttpErrorResponse, action: string): void {
+    this.selectedVideo = -1;
+    this.selectedDisplay = -1;
+    this.snackBar.open(error.status + ': ' + error.statusText, action);
   }
 }

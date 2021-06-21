@@ -10,7 +10,7 @@ public class ScheduleForm {
 
     @FormParam("eventTypeId")
     @PartType(MediaType.TEXT_PLAIN)
-    public String eventTypeId = "3";
+    public String eventTypeId = "1";
 
     @FormParam("campaignId")
     @PartType(MediaType.TEXT_PLAIN)

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Display} from '../../shared/display.model';
 import {Media} from '../../shared/media.model';
 
@@ -26,22 +26,28 @@ export class ApiService {
     return data;
   }
 
-  async submitVideo(displayId: number, mediaId: number): Promise<object>{
+  async submitVideo(displayId: number, mediaId: number): Promise<HttpErrorResponse>{
     console.log(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId);
+    console.log('submit Video');
     let data: any;
-    try {
-      data = this.http.post<object>(this.apiUrl + 'schedule/' + displayId + '/' +  mediaId, null)
-        .toPromise();
-    }
-    catch (err) {
-      console.log(err.status);
-      this.msg = err.message;
-      console.log(this.msg);
-    }
-    console.log(data);
-    console.log(this.msg);
+    data = this.http.post<object>(this.apiUrl + 'schedule/' + displayId + '/' + mediaId, null)
+      .subscribe(
+        (response) => {
+          console.log('response received');
+          data = response;
+        },
+        (error) => {
+          console.log('error caught');
+          data = error;
+        }
+      );
 
-    // @ts-ignore
+    await this.delay(800);
+
     return data;
+  }
+
+  delay(ms: number): Promise<object> {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 }
