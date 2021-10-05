@@ -1,0 +1,69 @@
+= DigitalSignage On-demand-videos
+Daniel Andricic, Benjamin Ecker
+1.0, 2021-09-27
+ifndef::sourcedir[:sourcedir: ../src/main/java]
+ifndef::imagesdir[:imagesdir: images]
+ifndef::backend[:backend: html5]
+:icons: font
+
+== Projektbeschreibung
+
+On-demand-videos ist eine Webanwendung die es dem Nutzer ermöglicht, ein Video auf alle oder auf +
+in bestimmten Monitor zu wiedergeben.
+Unsere Webanwendung gilt nur für die Monitore die in der HTL Leonding
+aufgestellt sind.
+
+== Was ist das?
+
+* "fernverwaltete Digitalanzeige"
+* zeigt aktuelle Nachrichten, Wetter-Prognosen, etc. an.
+
+== Was ist das Problem?
+
+* Digital-Signage-Server ist nicht echtzeit-basiert.
+Der Server führt alle eingehenden Befehle ca. alle 5 Minuten aus.
+* Die Software (XIBO API) kann nicht auf Anfrage, ein Video sofort abspielen lassen.
+* Jede Aktion muss zuerst scheduled werden.
+
+== Ziel
+
+Es ist eine Webanwendung so zu implementieren, dass der Benutzer ohne technische Vorkenntnisse, ein Video auf einem Monitor anzeigen kann.
+
+== Was soll unsere Erweiterung ermöglichen?
+
+* Abspielen von Videos über eine bestimmte Anzeige.
+* Über eine PWA (Progressive Web App), ein Video und einen Monitor auswählen.
+
+=== Was ist eine PWA?
+
+* Progressive Web App
+* Respoonsive Webapp mit Eigenschften einer App
+
+=== Anforderungen
+
+[plantuml, usecase-diagram, png]
+----
+@startuml
+left to right direction
+
+actor User as u
+
+package "Digital Signage Erweiterung" {
+    usecase "Show video" as stv
+    usecase "Select specific monitor" as slm
+    usecase "Select specific video" as slv
+}
+
+u --> stv
+stv .> slm : <<include>>
+stv .> slv : <<include>>
+@enduml
+----
+
+== Wie löst die PWA das Problem?
+
+* Benutzer wählt Video und Monitor aus, bevor der Befehl an den Server geht.
+* REST-Server wartet auf Anweisungen der PWA und leitet den Befehl an +
+den Digital-Signage-Server weiter.
+* Es wird ein Schedule (Zeitplan) erstellt, der als dringend eingestuft wird, um das Video über jeden Content zu überblenden. +
+
