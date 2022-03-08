@@ -6,29 +6,55 @@ ifndef::imagesdir[:imagesdir: images]
 ifndef::backend[:backend: html5]
 :icons: font
 
-== Projektbeschreibung
 
-On-demand-videos ist eine Webanwendung die es den Nutzer ermöglicht, ein Video auf alle oder auf +
-in bestimmten Monitor zu wiedergeben.
-Unsere Webanwendung gilt nur für die Monitore die in der HTL Leonding
-aufgestellt sind.
+== Was ist das Problem?
 
-== Was ist das?
+image::main_background.jpg[background, size=cover]
+* Videos können nicht spontan geplant werden.
+* Server nicht echtzeit-basierend.
+* Alle Befehle werden geplant
+* Die Befehle werden alle 5 Minuten ausgeführt.
+
+[.notes]
+--
+* Problem beschreiben
+* Wenn ein Befehl eingeht, dann wird es nicht sofort ausgeführt, sondern erst +
+wenn die Überprüfung auf neue Befehle eingeht.
+--
+
+== Was ist ein Digital-Signage-Service?
 
 * "fernverwaltete Digitalanzeige"
 * zeigt aktuelle Nachrichten, Wetter-Prognosen, etc. an.
 
-== Was ist das Problem?
-
-* Digital-Signage-Server ist nicht echtzeit-basiert.
-Der Server führt alle eingehenden Befehle ca. alle 5 Minuten aus.
-* Die Software (XIBO API) kann nicht auf Anfrage, ein Video sofort abspielen lassen.
-* Jede Aktion muss zuerst scheduled werden.
+[.notes]
+--
+Xibo ist ein Digital-Signage-System.
+Es ermöglicht einen Plan zu erstellen, was auf einen Monitor wann, angezeigt werden soll.
+Dient der Verbreitung von Informationen, deshalb auch der Begriff "Digital Signage" oder in Deutsch übersetzt "Digitales Schild".
+--
 
 == Was soll unsere Erweiterung ermöglichen?
 
 * Abspielen von Videos über eine bestimmte Anzeige.
-* Über ein Web Widget ein Video und einen Monitor auswählen.
+* Über eine PWA (Progressive Web App), ein Video und einem Monitor auswählen.
+* Das Abspielen von Videos in kurzer Zeit zu eröglichen. (Mit leichter Verzögerung)
+
+[.notes]
+--
+Die Erweiterung wird es ermöglichen den Benutzer ein Video auf einem bestimmten Monitor anzuzeigen.
+--
+=== Was ist eine PWA?
+
+* Progressive Web App
+* Respoonsive Webapp mit Eigenschaften einer App
+* Ermöglicht einen Offline-Modus
+
+[.notes]
+--
+Eine progressive Web-App ermöglicht es eine Webseite +
+auch offline anzuzeigen, bzw. wie eine App zu benutzen. +
+--
 
 === Anforderungen
 
@@ -52,14 +78,15 @@ stv .> sid : <<extends>>
 @enduml
 ----
 
-=== Was ist ein Web Widget?
+== Wie schaltet man ein Video ein?
 
-* Webseite/Webapplikation die in der Host-Page eingebettet wurde.
-* Beispiel: AdSense von Google oder AccuWeather.
+* Zuerst muss ein Monitor ausgewählt werden.
+* Danach was abgespielt werden soll.
+*
 
-== Wie löst das Web Widget das Problem?
-
-* Benutzer wählt Video und Monitor aus, bevor der Befehl an den Server geht.
-* REST-Server wartet auf Anweisungen des Web Widgets und leitet den Befehl an +
-den Digital-Signage-Server weiter.
-* Es wird ein Schedule(Zeitplan) erstellt, der als dringend eingestuft wird, um das Video über jeden Content zu überblenden. +
+[.notes]
+--
+* Monitor auswählen
+* Video auswählen
+* Video starten
+--
