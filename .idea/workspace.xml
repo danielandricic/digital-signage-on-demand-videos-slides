@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="74f1df10-7837-467b-b829-1672ae15cea7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/digital-signage-on-demand-videos-slides.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asciidocs-slides/css/presentation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asciidocs-slides/images/background.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asciidocs-slides/images/background2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asciidocs-slides/images/live-demo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asciidocs-slides/images/main_background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/asciidocs-slides/images/main_background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asciidocs-slides/index.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/asciidocs-slides/index.adoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-pdf-docker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build-pdf-docker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-slides-docker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build-slides-docker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean-all.sh" beforeDir="false" afterPath="$PROJECT_DIR$/clean-all.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download-reveal.sh" beforeDir="false" afterPath="$PROJECT_DIR$/download-reveal.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publish-gh-pages.sh" beforeDir="false" afterPath="$PROJECT_DIR$/publish-gh-pages.sh" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="26iPOIw8si4BMGMDkp0CHHoqqmd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/asciidocs-slides/images" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/asciidocs-slides/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/asciidocs-slides/css" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74f1df10-7837-467b-b829-1672ae15cea7" name="Changes" comment="" />
+      <created>1647903401925</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647903401925</updated>
+      <workItem from="1647903406485" duration="4985000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

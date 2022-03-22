@@ -1,0 +1,123 @@
+= DigitalSignage On-demand-videos
+Daniel Andricic, Benjamin Ecker
+1.3, 2022-03-21
+ifndef::sourcedir[:sourcedir: ../src/main/java]
+ifndef::imagesdir[:imagesdir: images]
+ifndef::backend[:backend: html5]
+:icons: font
+:customcss: css/presentation.css
+
+[transition="zoom-in slide-out"]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+[.columns]
+[.goals]
+== Ausgangssituation
+
+* Die HTL Leonding besitzt mehrere Anzeigen die immer aktuelle Informationen über Wetter, Politik und Technik darstellt.
+* Diese Anzeigen zeigen auch ausgewählte Projekte die in der HTL Leonding entwickelt werden.
+
+[background-image="background2.jpg", background-opacity="0,2", background-size="cover"]
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+== Was ist das Problem?
+
+* Videos können nicht spontan geplant werden.
+* Server nicht echtzeit-basierend.
+* Alle Befehle werden geplant
+* Die Befehle werden alle 5 Minuten ausgeführt.
+
+[.notes]
+--
+* Problem beschreiben
+* Wenn ein Befehl eingeht, dann wird es nicht sofort ausgeführt, sondern erst +
+wenn die Überprüfung auf neue Befehle eingeht.
+--
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+== Ergebnis
+
+* Eine Webapp die ein ausgewähltes Video auf einen ausgewählten Monitor anzeigen lässt.
+* Eine Backend die dafür sorgt, dass das Video auf den Monitor angezeigt wird.
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+== Was ist ein Digital-Signage-Service?
+
+* "fernverwaltete Digitalanzeige"
+* zeigt aktuelle Nachrichten, Wetter-Prognosen, etc. an.
+
+[.notes]
+--
+Xibo ist ein Digital-Signage-System.
+Es ermöglicht einen Plan zu erstellen, was auf einen Monitor wann, angezeigt werden soll.
+Dient der Verbreitung von Informationen, deshalb auch der Begriff "Digital Signage" oder in Deutsch übersetzt "Digitales Schild".
+--
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+== Was soll unsere Erweiterung ermöglichen?
+
+* Abspielen von Videos über eine bestimmte Anzeige.
+* Über eine PWA (Progressive Web App), ein Video und einem Monitor auswählen.
+* Das Abspielen von Videos in kurzer Zeit zu eröglichen. (Mit leichter Verzögerung)
+
+[.notes]
+--
+Die Erweiterung wird es ermöglichen den Benutzer ein Video auf einem bestimmten Monitor anzuzeigen.
+--
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+=== Was ist eine PWA?
+
+* Progressive Web App
+* Respoonsive Webapp mit Eigenschaften einer App
+* Ermöglicht einen Offline-Modus
+
+[.notes]
+--
+Eine progressive Web-App ermöglicht es eine Webseite +
+auch offline anzuzeigen, bzw. wie eine App zu benutzen. +
+--
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+=== Anforderungen
+
+[plantuml, usecase-diagram, png]
+----
+@startuml
+left to right direction
+
+actor User as u
+
+package "Digital Signage Erweiterung" {
+    usecase "Show video" as stv
+    usecase "Select specific monitor" as slm
+    usecase "Select specific video" as slv
+}
+
+u --> stv
+stv .> slm : <<include>>
+stv .> slv : <<include>>
+stv .> sid : <<extends>>
+@enduml
+----
+
+[.columns]
+[transition="zoom-in slide-out"]
+[background-image="live-demo.jpg"]
+[.goals]
+== Live Demo
