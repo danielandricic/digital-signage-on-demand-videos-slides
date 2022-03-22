@@ -81,7 +81,7 @@ Die Erweiterung wird es ermöglichen den Benutzer ein Video auf einem bestimmten
 === Was ist eine PWA?
 
 * Progressive Web App
-* Respoonsive Webapp mit Eigenschaften einer App
+* Responsive Webapp mit Eigenschaften einer App
 * Ermöglicht einen Offline-Modus
 
 [.notes]
