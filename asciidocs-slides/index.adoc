@@ -1,15 +1,27 @@
 = DigitalSignage On-demand-videos
 Daniel Andricic, Benjamin Ecker
-1.0, 2021-09-27
+1.3, 2022-03-21
 ifndef::sourcedir[:sourcedir: ../src/main/java]
 ifndef::imagesdir[:imagesdir: images]
 ifndef::backend[:backend: html5]
 :icons: font
+:customcss: css/presentation.css
 
+[transition="zoom-in slide-out"]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+[.columns]
+[.goals]
+== Ausgangssituation
 
+* Die HTL Leonding besitzt mehrere Anzeigen die immer aktuelle Informationen über Wetter, Politik und Technik darstellt.
+* Diese Anzeigen zeigen auch ausgewählte Projekte die in der HTL Leonding entwickelt werden.
+
+[background-image="background2.jpg", background-opacity="0,2", background-size="cover"]
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
 == Was ist das Problem?
 
-image::main_background.jpg[background, size=cover]
 * Videos können nicht spontan geplant werden.
 * Server nicht echtzeit-basierend.
 * Alle Befehle werden geplant
@@ -22,6 +34,19 @@ image::main_background.jpg[background, size=cover]
 wenn die Überprüfung auf neue Befehle eingeht.
 --
 
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
+== Ergebnis
+
+* Eine Webapp die ein ausgewähltes Video auf einen ausgewählten Monitor anzeigen lässt.
+* Eine Backend die dafür sorgt, dass das Video auf den Monitor angezeigt wird.
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
 == Was ist ein Digital-Signage-Service?
 
 * "fernverwaltete Digitalanzeige"
@@ -34,6 +59,10 @@ Es ermöglicht einen Plan zu erstellen, was auf einen Monitor wann, angezeigt we
 Dient der Verbreitung von Informationen, deshalb auch der Begriff "Digital Signage" oder in Deutsch übersetzt "Digitales Schild".
 --
 
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
 == Was soll unsere Erweiterung ermöglichen?
 
 * Abspielen von Videos über eine bestimmte Anzeige.
@@ -44,6 +73,11 @@ Dient der Verbreitung von Informationen, deshalb auch der Begriff "Digital Signa
 --
 Die Erweiterung wird es ermöglichen den Benutzer ein Video auf einem bestimmten Monitor anzuzeigen.
 --
+
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
 === Was ist eine PWA?
 
 * Progressive Web App
@@ -56,6 +90,10 @@ Eine progressive Web-App ermöglicht es eine Webseite +
 auch offline anzuzeigen, bzw. wie eine App zu benutzen. +
 --
 
+[transition="zoom-in slide-out"]
+[.columns]
+[.goals]
+[background-image="main_background.jpg", background-opacity="0.4", background-size="cover"]
 === Anforderungen
 
 [plantuml, usecase-diagram, png]
@@ -78,15 +116,8 @@ stv .> sid : <<extends>>
 @enduml
 ----
 
-== Wie schaltet man ein Video ein?
-
-* Zuerst muss ein Monitor ausgewählt werden.
-* Danach was abgespielt werden soll.
-*
-
-[.notes]
---
-* Monitor auswählen
-* Video auswählen
-* Video starten
---
+[.columns]
+[transition="zoom-in slide-out"]
+[background-image="live-demo.jpg"]
+[.goals]
+== Live Demo
